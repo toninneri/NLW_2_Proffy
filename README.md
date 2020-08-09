@@ -2,7 +2,7 @@
 Project developed during the second NLW week Omnistack by Rocketseat.
 
 <h1 align="center">
-    <img alt="Proffy" src=".github/logo.svg" height="100px" />
+    <img alt="Proffy" src="./gitdesign/logo.svg" height="250px" />
     <br>Next Level Week #2<br/>
     Node.js | ReactJS | React Native
 </h1>
@@ -22,7 +22,7 @@ Project developed during the second NLW week Omnistack by Rocketseat.
 </p>
 
 <p align="center">
-  <img alt="project design" width="650px" src="./tonproff.png" />
+  <img alt="project design" width="650px" src="./gitdesign/tonproff.png" />
 <p>
 
 ## :bookmark: About
