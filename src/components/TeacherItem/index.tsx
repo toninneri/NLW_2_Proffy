@@ -2,34 +2,54 @@ import React from 'react';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
 
 import './styles.css';
+import api from '../../services/api';
 // import { Container } from './styles';
+export interface Teacher {
+    id: number;
+    avatar:string;
+    bio: string;
+    cost:number;
+    name: string;
+    subject: string;
+    whatsapp:string;
+  };
 
-const TeacherItem: React.FC = () => {
+interface TeacherItemProps {
+  teacher: Teacher;
+    
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+
+  function createNewConnection(){
+    api.post('connections', {
+      user_id: teacher.id,
+    })
+
+  }
+
   return (
     <article className="teacher-item">
     <header>
       <img
-        src="https://avatars0.githubusercontent.com/u/33626748?s=460&u=72c123f0f56c2aec50d30b8d18c9ee7742e85be1&v=4"
-        alt="Tonin Neri"
+        src={teacher.avatar}
+        alt={teacher.name}
       />
       <div>
-        <strong>Tonin Neri</strong>
-        <span>Inglês</span>
+        <strong>{teacher.name}</strong>
+        <span>{teacher.subject}</span>
       </div>
     </header>
-    <p>
-      Professor com experiência internacional na Universidade de Miami.
-      <br /><br />com graduação em Lingua Portuguesa, Inglesa e espanhola.
-    </p>
+    <p>{teacher.bio}</p>
     <footer>
         <p>
             preço/hora
-            <strong>R$ 50,00</strong>
+            <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a target="_blank" rel="noopener noreferrer" onClick={createNewConnection} href={`https://wa.me/${ teacher.whatsapp }`} type="button">
             <img src={whatsappIcon} alt="whatsapp" />
             Entrar em contato
-        </button>
+        </a>
     </footer>
   </article>
   )
